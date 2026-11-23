@@ -1,0 +1,25 @@
+@MovieApi_HostAddress = http://localhost:5190
+@TenantId = tenant-a
+
+### ===== Categories =====
+POST {{MovieApi_HostAddress}}/api/categories
+X-Tenant-Id: {{TenantId}}
+Content-Type: application/json
+
+{ "name": "Electronics" }
+
+###
+GET {{MovieApi_HostAddress}}/api/categories?pageNumber=1&pageSize=10&sortBy=name
+X-Tenant-Id: {{TenantId}}
+
+### ===== Products =====
+POST {{MovieApi_HostAddress}}/api/products
+X-Tenant-Id: {{TenantId}}
+Content-Type: application/json
+
+{ "name": "Mechanical Keyboard", "price": 49.99, "categoryId": "PUT-CATEGORY-ID-HERE" }
+
+###
+GET {{MovieApi_HostAddress}}/api/products?pageNumber=1&pageSize=10&sortBy=price desc&search=key
+X-Tenant-Id: {{TenantId}}
+
